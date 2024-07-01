@@ -1,0 +1,30 @@
+---
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width" />
+		<link rel="shortcut icon" href="/favicon.ico" sizes="196x196" />
+		<link rel="icon" href="./favicon.ico" sizes="196x196" />
+		<meta property="og:image" content="./favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="">
+		<Header/>
+		<slot />
+		<Footer/>
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js" integrity="sha512-eNB1lPVKSAW5mXqnboj6QX9kTZKEq4t2f2c5ytUhb+QzPudY3imnjHyXYhIXavZo9e3slCjhDpOJhuMm9uSwzw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	</body>
+</html>
