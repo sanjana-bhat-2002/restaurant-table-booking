@@ -40,8 +40,8 @@ interface Props {
 		<span class="ml-3 text-xl">Bistro Dine</span>
 	  </a>
   
-	<div class="hidden sm:flex gap-16">
-	  <ul class="flex gap-10 items-center">
+	<div class="hidden sm:flex gap-10">
+	  <ul class="flex gap-6 items-center">
 		<li>
 		  <a href="/">Home</a>
 		</li>
@@ -69,13 +69,13 @@ interface Props {
 	</button>
   
 	<!-- mobile menu -->
-	<div id="mobile_menu" class="absolute top-full bg-indigo-50 right-10 left-10 hidden">
-	  <div class="flex flex-col gap-5 p-5 sm:hidden">
+	<div id="mobile_menu" class="absolute top-full bg-indigo-50 right-10 left-10 hidden rounded-b-lg shadow-lg">
+	  <div class="flex flex-col gap-5 p-5 sm:hidden ">
 		<ul class="flex flex-col gap-2 items-center text-center">
-		  <li class="w-full">
+		  <li class="w-full border-b border-gray-300">
 			<a class="py-5 block" href="/">Home</a>
 		  </li>
-		  <li class="w-full">
+		  <li class="w-full border-b border-gray-300">
 			<a class="py-5 block" href="/mybookings">My Bookings</a>
 		  </li>
 		</ul>
