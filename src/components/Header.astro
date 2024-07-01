@@ -1,6 +1,18 @@
-  <header class="text-gray-600 body-font bg-indigo-50 border-b">
-	<div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-	  <a href='/' class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+---
+
+interface Props {
+	buttonFunctionality: string;
+}
+  
+  const {
+	buttonFunctionality = 'Get Started'     // Default type
+  } = Astro.props as Props;
+---
+
+
+
+<nav class="flex justify-between items-center px-10 py-5 relative z-50 body-font bg-indigo-50 border-b">
+	<a href='/' class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
 		<svg fill="#000000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
 	 width="50px" height="50px" viewBox="0 0 388.331 388.33"
 	 xml:space="preserve">
@@ -27,16 +39,68 @@
 		</svg>
 		<span class="ml-3 text-xl">Bistro Dine</span>
 	  </a>
-	  <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-		<a class="mr-5 hover:text-gray-200" href="/">Home</a>
-		<a class="mr-5 hover:text-gray-200" href="/about">My Bookings</a>
-	  </nav>
+  
+	<div class="hidden sm:flex gap-16">
+	  <ul class="flex gap-10 items-center">
+		<li>
+		  <a href="/">Home</a>
+		</li>
+		<li>
+		  <a href="/mybookings">My Bookings</a>
+		</li>
+	  </ul>
 	  <a href="/login">
-	  <button class="text-white rounded-3xl h-12 inline-flex items-center bg-indigo-500 border-0 py-1 px-3 focus:outline-none hover:bg-white hover:text-indigo-500 hover:border text-base mt-4 md:mt-0">Book a Table
-		<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+	  <button class="text-white rounded-2xl h-12 inline-flex items-center bg-indigo-500 border-0 py-1 px-3 focus:outline-none hover:bg-white hover:text-indigo-500 hover:border text-base mt-4 md:mt-0">{buttonFunctionality}
+		<!-- <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
 		  <path d="M5 12h14M12 5l7 7-7 7"></path>
-		</svg>
+		</svg> -->
 	  </button>
 	</a>
 	</div>
-  </header>
+  
+	<button id="menu_btn" class="w-10 sm:hidden">
+	  <svg id="menu_bars" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+		<path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+	  </svg>
+	  
+	  <svg id="menu_close" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x hidden" viewBox="0 0 16 16">
+	<path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+  </svg>
+	</button>
+  
+	<!-- mobile menu -->
+	<div id="mobile_menu" class="absolute top-full bg-indigo-50 right-10 left-10 hidden">
+	  <div class="flex flex-col gap-5 p-5 sm:hidden">
+		<ul class="flex flex-col gap-2 items-center text-center">
+		  <li class="w-full">
+			<a class="py-5 block" href="/">Home</a>
+		  </li>
+		  <li class="w-full">
+			<a class="py-5 block" href="/mybookings">My Bookings</a>
+		  </li>
+		</ul>
+		<a href="/login" class="flex justify-center">
+		<button class="text-white rounded-3xl h-12 inline-flex items-center bg-indigo-500 border-0 py-1 px-3 focus:outline-none hover:bg-white hover:text-indigo-500 hover:border text-base mt-4 md:mt-0">{buttonFunctionality}
+			<!-- <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+			  <path d="M5 12h14M12 5l7 7-7 7"></path>
+			</svg> -->
+		  </button>
+		</a>
+	  </div>
+	</div>
+	<script is:inline>
+		const menu_btn = document.getElementById('menu_btn');
+		const mobile_menu = document.getElementById('mobile_menu');
+		const menu_bars = document.getElementById('menu_bars');
+		const menu_close = document.getElementById('menu_close');
+		
+		menu_btn?.addEventListener('click', () => {
+		  mobile_menu?.classList.toggle('hidden');
+		  menu_bars?.classList.toggle('hidden');
+		  menu_close?.classList.toggle('hidden');
+		});
+		</script>
+  </nav>
+
+  
+	

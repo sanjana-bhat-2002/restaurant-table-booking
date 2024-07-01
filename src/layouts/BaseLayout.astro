@@ -3,6 +3,7 @@ import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 interface Props {
 	title: string;
+	// headerButtonFunctionality: string;/
 }
 
 const { title } = Astro.props;
@@ -21,7 +22,7 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body class="">
-		<Header/>
+		<Header buttonFunctionality='Get Started'/>
 		<slot />
 		<Footer/>
 		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js" integrity="sha512-eNB1lPVKSAW5mXqnboj6QX9kTZKEq4t2f2c5ytUhb+QzPudY3imnjHyXYhIXavZo9e3slCjhDpOJhuMm9uSwzw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
