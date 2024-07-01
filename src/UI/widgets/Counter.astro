@@ -1,0 +1,80 @@
+<div class="custom-number-input h-[45px] w-32">
+  <div class="flex flex-row h-10 w-full rounded-lg relative bg-transparent mt-1">
+    <button id="decrement" data-action="decrement" class="bg-violet-100 text-gray-600 hover:text-gray-700 hover:bg-gray-300 h-full w-20 rounded-l-lg cursor-pointer outline-none">
+      <span class="m-auto text-2xl font-thin">−</span>
+    </button>
+    <input id="number-input" type="number" class="focus:outline-none text-center w-full bg-white font-semibold text-md hover:text-black focus:text-black md:text-base cursor-default flex items-center text-gray-700 outline-none border" name="custom-input-number" value="1">
+    <button id="increment" data-action="increment" class="bg-violet-100 text-gray-600 hover:text-gray-700 hover:bg-gray-300 h-full w-20 rounded-r-lg cursor-pointer">
+      <span class="m-auto text-2xl font-thin">+</span>
+    </button>
+  </div>
+  <label for="custom-input-number" class="w-full text-gray-700 flex justify-start text-sm">No of Guests</label>
+</div>
+
+<style>
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  .custom-number-input input:focus {
+    outline: none !important;
+  }
+
+  .custom-number-input button:focus {
+    outline: none !important;
+  }
+</style>
+
+<script>
+  const minValue = 1;
+const maxValue = 20;
+
+function updateButtons(value: number) {
+  const decrementButton = document.getElementById('decrement') as HTMLButtonElement;
+  const incrementButton = document.getElementById('increment') as HTMLButtonElement;
+
+  if (value <= minValue) {
+    decrementButton.disabled = true;
+  } else {
+    decrementButton.disabled = false;
+  }
+
+  if (value >= maxValue) {
+    incrementButton.disabled = true;
+  } else {
+    incrementButton.disabled = false;
+  }
+}
+
+function decrement() {
+  const target = document.getElementById('number-input') as HTMLInputElement;
+  let value = Number(target.value);
+  if (value > minValue) {
+    value--;
+    target.value = value.toString();
+    updateButtons(value);
+  }
+}
+
+function increment() {
+  const target = document.getElementById('number-input') as HTMLInputElement;
+  let value = Number(target.value);
+  if (value < maxValue) {
+    value++;
+    target.value = value.toString();
+    updateButtons(value);
+  }
+}
+
+document.getElementById('decrement')?.addEventListener('click', decrement);
+document.getElementById('increment')?.addEventListener('click', increment);
+
+// Initialize the buttons state on page load
+document.addEventListener('DOMContentLoaded', () => {
+  const initialValue = Number((document.getElementById('number-input') as HTMLInputElement).value);
+  updateButtons(initialValue);
+});
+
+</script>
