@@ -1,98 +1,44 @@
----
-import RestaurantCard from "./RestaurantCard.astro";
----
+<div class="flex flex-wrap justify-center items-center gap-4 ml-3 border-b border-gray-400 pb-6">
+    <button class="border rounded-3xl flex  justify-center gap-2 p-2 items-center border-black hover:text-white hover:bg-black group">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 6H21M3 12H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        
+        All
+    </button>
 
-
-
-
-
-<div class="rounded w-1/2">
-    <!-- Tabs -->
-    <ul id="tabs" class="inline-flex pt-2 px-1 w-full border-b">
-      <li class="bg-white px-4 text-green-600 font-semibold py-2 rounded-t border-t border-r border-l -mb-px">
-        <a id="default-tab" href="#first" class="flex items-center gap-2">
-            <svg class="w-4 h-4" viewBox="0 0 42 43" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M21 0C9.45 0 0 9.675 0 21.5C0 33.325 9.45 43 21 43C32.55 43 42 33.325 42 21.5C42 9.675 32.55 0 21 0ZM16.8 32.25L6.3 21.5L9.261 18.4685L16.8 26.1655L32.739 9.847L35.7 12.9L16.8 32.25Z" fill="#16a34a"/>
-                </svg>
+    <button class="border rounded-3xl flex justify-center gap-2 p-2 items-center border-green-500 hover:text-white hover:bg-green-500 group">
+        <svg class="w-4 h-4 group-hover:fill-white" viewBox="0 0 42 43" fill="#16a34a" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 0C9.45 0 0 9.675 0 21.5C0 33.325 9.45 43 21 43C32.55 43 42 33.325 42 21.5C42 9.675 32.55 0 21 0ZM16.8 32.25L6.3 21.5L9.261 18.4685L16.8 26.1655L32.739 9.847L35.7 12.9L16.8 32.25Z" />
+        </svg>
         Confirmed
-            </a>
-      </li>
-      <li class="px-4 text-orange-500 font-semibold py-2 rounded-t">
-        <a href="#second" class="flex items-center gap-2">
-            <svg class="w-4 h-4" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M23.65 23.65H19.35V10.75H23.65M23.65 32.25H19.35V27.95H23.65M21.5 0C18.6766 0 15.8808 0.556114 13.2723 1.63659C10.6638 2.71707 8.29366 4.30075 6.2972 6.2972C2.26517 10.3292 0 15.7978 0 21.5C0 27.2022 2.26517 32.6708 6.2972 36.7028C8.29366 38.6993 10.6638 40.2829 13.2723 41.3634C15.8808 42.4439 18.6766 43 21.5 43C27.2022 43 32.6708 40.7348 36.7028 36.7028C40.7348 32.6708 43 27.2022 43 21.5C43 18.6766 42.4439 15.8808 41.3634 13.2723C40.2829 10.6638 38.6993 8.29366 36.7028 6.2972C34.7063 4.30075 32.3362 2.71707 29.7277 1.63659C27.1192 0.556114 24.3234 0 21.5 0Z" fill="#ea580c"/>
-                </svg>
-                
-            Pending
-        </a>
-        </li>
-      <li class="px-4 text-gray-500 font-semibold py-2 rounded-t">
-        <a href="#third" class="flex items-center gap-2">
-            <svg class="w-4 h-4" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M21.5 0C33.325 0 43 9.675 43 21.5C43 33.325 33.325 43 21.5 43C9.675 43 0 33.325 0 21.5C0 9.675 9.675 0 21.5 0ZM21.5 4.3C17.415 4.3 13.76 5.59 10.965 7.955L35.045 32.035C37.195 29.025 38.7 25.37 38.7 21.5C38.7 12.04 30.96 4.3 21.5 4.3ZM32.035 35.045L7.955 10.965C5.59 13.76 4.3 17.415 4.3 21.5C4.3 30.96 12.04 38.7 21.5 38.7C25.585 38.7 29.24 37.41 32.035 35.045Z" fill="#6b7280"/>
-                </svg>
-            Cancelled
-        </a>
-    </li>
-      <li class="px-4 text-red-600 font-semibold py-2 rounded-t">
-        <a href="#fourth" class="flex items-center gap-2">
-            <svg class="w-4 h-4" viewBox="0 0 39 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M34.6667 0H4.33333C3.18406 0 2.08186 0.44484 1.2692 1.23666C0.456546 2.02848 0 3.10242 0 4.22222V33.7778C0 34.8976 0.456546 35.9715 1.2692 36.7633C2.08186 37.5552 3.18406 38 4.33333 38H34.6667C35.8159 38 36.9181 37.5552 37.7308 36.7633C38.5435 35.9715 39 34.8976 39 33.7778V4.22222C39 3.10242 38.5435 2.02848 37.7308 1.23666C36.9181 0.44484 35.8159 0 34.6667 0ZM34.6667 33.7778H4.33333V4.22222H34.6667V33.7778ZM30.3333 11.4L22.5333 19L30.3333 26.6L27.3 29.5556L19.5 21.9556L11.7 29.5556L8.66667 26.6L16.4667 19L8.66667 11.4L11.7 8.44444L19.5 16.0444L27.3 8.44444L30.3333 11.4Z" fill="#dc2626"/>
+    </button>
+
+    <button class="border rounded-3xl flex justify-center gap-2 p-2 items-center border-orange-500 hover:text-white hover:bg-orange-500 group">
+        <svg class="w-4 h-4" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23.65 23.65H19.35V10.75H23.65M23.65 32.25H19.35V27.95H23.65M21.5 0C18.6766 0 15.8808 0.556114 13.2723 1.63659C10.6638 2.71707 8.29366 4.30075 6.2972 6.2972C2.26517 10.3292 0 15.7978 0 21.5C0 27.2022 2.26517 32.6708 6.2972 36.7028C8.29366 38.6993 10.6638 40.2829 13.2723 41.3634C15.8808 42.4439 18.6766 43 21.5 43C27.2022 43 32.6708 40.7348 36.7028 36.7028C40.7348 32.6708 43 27.2022 43 21.5C43 18.6766 42.4439 15.8808 41.3634 13.2723C40.2829 10.6638 38.6993 8.29366 36.7028 6.2972C34.7063 4.30075 32.3362 2.71707 29.7277 1.63659C27.1192 0.556114 24.3234 0 21.5 0Z" fill="#ea580c"/>
             </svg>
-            Rejected
-        </a>
-    </li>
-    </ul>
+            
+        Pending
+    </button>
 
-    
-<div id="tab-contents">
-    <div id="first" class="p-4">
-      <RestaurantCard/>
-    </div>
-    <div id="second" class="hidden p-4">
-      Pending
-    </div>
-    <div id="third" class="hidden p-4">
-      Cancelled
-    </div>
-    <div id="fourth" class="hidden p-4">
-      Rejected
-    </div>
-</div>
+    <button class="border rounded-3xl flex justify-center gap-2 p-2 items-center border-gray-500 hover:text-white hover:bg-gray-500 group">
+        <svg class="w-4 h-4" viewBox="0 0 43 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21.5 0C33.325 0 43 9.675 43 21.5C43 33.325 33.325 43 21.5 43C9.675 43 0 33.325 0 21.5C0 9.675 9.675 0 21.5 0ZM21.5 4.3C17.415 4.3 13.76 5.59 10.965 7.955L35.045 32.035C37.195 29.025 38.7 25.37 38.7 21.5C38.7 12.04 30.96 4.3 21.5 4.3ZM32.035 35.045L7.955 10.965C5.59 13.76 4.3 17.415 4.3 21.5C4.3 30.96 12.04 38.7 21.5 38.7C25.585 38.7 29.24 37.41 32.035 35.045Z" fill="#6b7280"/>
+            </svg>
+        Cancelled
+    </button>
+
+    <button class="border rounded-3xl flex justify-center gap-2 p-2 items-center border-red-500 hover:text-white hover:bg-red-500 group">
+        <svg class="w-4 h-4" viewBox="0 0 39 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M34.6667 0H4.33333C3.18406 0 2.08186 0.44484 1.2692 1.23666C0.456546 2.02848 0 3.10242 0 4.22222V33.7778C0 34.8976 0.456546 35.9715 1.2692 36.7633C2.08186 37.5552 3.18406 38 4.33333 38H34.6667C35.8159 38 36.9181 37.5552 37.7308 36.7633C38.5435 35.9715 39 34.8976 39 33.7778V4.22222C39 3.10242 38.5435 2.02848 37.7308 1.23666C36.9181 0.44484 35.8159 0 34.6667 0ZM34.6667 33.7778H4.33333V4.22222H34.6667V33.7778ZM30.3333 11.4L22.5333 19L30.3333 26.6L27.3 29.5556L19.5 21.9556L11.7 29.5556L8.66667 26.6L16.4667 19L8.66667 11.4L11.7 8.44444L19.5 16.0444L27.3 8.44444L30.3333 11.4Z" fill="#dc2626"/>
+        </svg>
+        Rejected
+    </button>
 </div>
 
-
-<script>
-   document.addEventListener("DOMContentLoaded", () => {
-    const tabsContainer = document.querySelector("#tabs") as HTMLUListElement | null;
-
-    if (!tabsContainer) return;
-
-    const tabTogglers = tabsContainer.querySelectorAll<HTMLAnchorElement>("#tabs a");
-
-    tabTogglers.forEach((toggler) => {
-        toggler.addEventListener("click", (e: MouseEvent) => {
-            e.preventDefault();
-
-            const tabName = (e.currentTarget as HTMLAnchorElement).getAttribute("href");
-
-            if (!tabName) return;
-
-            const tabContents = document.querySelector("#tab-contents") as HTMLDivElement | null;
-
-            if (!tabContents) return;
-
-            for (let i = 0; i < tabContents.children.length; i++) {
-                tabContents.children[i].classList.add("hidden");
-                tabTogglers[i].parentElement?.classList.remove("border-t", "border-r", "border-l", "-mb-px", "bg-white");
-                if ("#" + tabContents.children[i].id === tabName) {
-                    tabContents.children[i].classList.remove("hidden");
-                }
-            }
-            (e.target as HTMLAnchorElement).parentElement?.classList.add("border-t", "border-r", "border-l", "-mb-px", "bg-white");
-        });
-    });
-});
-
-
-</script>
+<style>
+    .group:hover svg path {
+        fill: white;
+    }
+</style>
