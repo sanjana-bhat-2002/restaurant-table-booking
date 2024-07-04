@@ -2,6 +2,7 @@
 import RestaurantCard from "../widgets/RestaurantCard.astro";
 import DropdownList from "../widgets/DropdownList.astro";
 import Paginator from "../widgets/Paginator.astro";
+import SearchBar from "../widgets/SearchBar.astro";
 ---
 
 <section class="text-gray-600 body-font bg-white">
@@ -9,7 +10,9 @@ import Paginator from "../widgets/Paginator.astro";
       <div class="flex flex-col items-center justify-center text-center w-full mb-20">
         <h1 class="text-2xl font-medium title-font mb-4 text-gray-900">Explore our vast array of restaurants! </h1>
         <p class="lg:w-2/3 mx-auto leading-relaxed text-base mb-12">(Put whatever text you want I had no patience to think of nicer text xD)</p>
-        <DropdownList />
+        
+          <DropdownList />
+          <SearchBar />
         <Paginator />
       </div>
 

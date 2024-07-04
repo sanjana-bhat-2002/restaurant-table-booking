@@ -8,7 +8,7 @@ interface Props {
 	buttonFunctionality = 'Get Started'     // Default type
   } = Astro.props as Props;
 
-import SearchBar from "../widgets/SearchBar.astro";
+
 ---
 
 
@@ -44,10 +44,10 @@ import SearchBar from "../widgets/SearchBar.astro";
 		  </a>
 		  
 	</div>
-	<SearchBar />
+	<!-- <SearchBar /> -->
 	
 	<!-- PC Screen Menu -->
-	<div class="hidden lg:flex gap-10">
+	<div class="hidden md:flex gap-10">
 		
 	  <ul class="flex gap-6 items-center">
 		<li>
@@ -67,7 +67,7 @@ import SearchBar from "../widgets/SearchBar.astro";
 	</a>
 	</div>
   
-	<button id="menu_btn" class="w-10 lg:hidden">
+	<button id="menu_btn" class="w-10 md:hidden">
 	  <svg id="menu_bars" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
 		<path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
 	  </svg>
