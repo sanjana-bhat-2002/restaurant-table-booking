@@ -1,0 +1,44 @@
+<div class="hidden md:flex gap-10 lg:ml-32">
+    <div class="bg-white border-2 p-2 rounded-xl md:flex">
+        
+        <input name="search" id="title" class="border-white outline-none border-0 w-full rounded-xl p-2" type="text" placeholder="Search Restaurants" />
+        <button class="w-auto flex justify-end items-center text-gray-500 p-2 group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+        </button>
+    </div>
+</div>
+<button type="button" class="w-10 md:hidden absolute top-8 right-[21%] sm:right-[15%]" id="search_button">
+    <svg id="search-icon" class="h-7 w-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+    </svg>
+</button>
+
+<div id="mobile_search_bar" class="sm:w-1/2 sm:left-44 absolute bg-transparent top-24 right-10 left-10 hidden rounded-xl shadow-lg z-50">
+    <div class="flex flex-col gap-5 md:hidden">
+        <div class="bg-white flex justify-center p-2 relative border rounded-xl">
+            <input name="search" id="title" class="outline-none w-full p-2" type="text" placeholder="Search Restaurants" />
+            <button class="w-auto flex justify-end items-center text-gray-500 p-2 group">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+            </button>
+            
+        </div>
+        
+    </div>
+</div>
+
+
+<script>
+const searchButton = document.getElementById("search_button")
+const mobile_search_bar = document.getElementById("mobile_search_bar")
+
+searchButton?.addEventListener('click', () => {
+		  mobile_search_bar?.classList.toggle('hidden');
+          console.log(mobile_search_bar)
+		});
+
+        
+</script>
